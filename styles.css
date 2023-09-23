@@ -22,17 +22,33 @@ body {
     text-shadow: blue 1px 1px 10px;
 }
 
-.col-lg-3.endurance {
+.col-xl-3.endurance {
     border-right: 1px solid grey;
 }
 
-.col-lg-3.balance {
+.col-xl-3.balance {
     border-right: 1px solid grey;
 }
 
-.col-lg-3.strength {
+.col-xl-3.strength {
     border-right: 1px solid grey;
 }
 
+.navbar-nav .nav-link.active {
+    color: white;
+}
+
+.clickablePencil {
+    cursor: pointer;
+}
+
+.clickableTrash {
+    cursor: pointer;
+}
+
+.btn.btn-tiny {
+    padding: 0px;
+    margin-left: 5px;
+}
 
 
