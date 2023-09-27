@@ -111,11 +111,7 @@
                                                             <li v-for="(exercise, e) in absStrengthList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Strength-' + e"
-                                                                           name="abs" type="checkbox" value="something">
-                                                                    <label v-bind:for="'Strength-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -136,11 +132,7 @@
                                                             <li v-for="(exercise, e) in absEnduranceList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Endurance-' + e"
-                                                                           name="abs" type="checkbox" value="something">
-                                                                    <label v-bind:for="'Endurance-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -163,11 +155,7 @@
                                                             <li v-for="(exercise, e) in absBalanceList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Balance-' + e"
-                                                                           name="abs" type="checkbox" value="something">
-                                                                    <label v-bind:for="'Balance-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -189,11 +177,7 @@
                                                             <li v-for="(exercise, e) in absFlexibilityList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Flexibility-' + e"
-                                                                           name="abs" type="checkbox" value="something">
-                                                                    <label v-bind:for="'Flexibility-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -234,12 +218,7 @@
                                                             <li v-for="(exercise, e) in backStrengthList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Strength-' + e"
-                                                                           name="back" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Strength-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -261,12 +240,7 @@
                                                             <li v-for="(exercise, e) in backEnduranceList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Endurance-' + e"
-                                                                           name="back" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Endurance-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -287,12 +261,7 @@
                                                             <li v-for="(exercise, e) in backBalanceList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Balance-' + e"
-                                                                           name="back" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Balance-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -313,12 +282,7 @@
                                                             <li v-for="(exercise, e) in backFlexibilityList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Flexibility-' + e"
-                                                                           name="back" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Flexibility-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -356,12 +320,7 @@
                                                             <li v-for="(exercise, e) in bicepStrengthList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Strength-' + e"
-                                                                           name="bicep" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Strength-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -383,12 +342,7 @@
                                                             <li v-for="(exercise, e) in bicepEnduranceList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Endurance-' + e"
-                                                                           name="bicep" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Endurance-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -409,12 +363,7 @@
                                                             <li v-for="(exercise, e) in bicepBalanceList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Balance-' + e"
-                                                                           name="bicep" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Balance-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>
@@ -435,12 +384,7 @@
                                                             <li v-for="(exercise, e) in bicepFlexibilityList"
                                                                 :key="exercise.exerciseName" class="list-group-item">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input"
-                                                                           v-bind:id="'Flexibility-' + e"
-                                                                           name="bicep" type="checkbox"
-                                                                           value="something">
-                                                                    <label v-bind:for="'Flexibility-' + e"
-                                                                           :class="'form-check-label'">{{exercise.exerciseName}}</label>
+                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
                                                                     <button class="btn btn-tiny float-sm-end"
                                                                             v-on:click="deleteExercise(exercise)"><i
                                                                             class="fa-solid fa-trash"></i></button>

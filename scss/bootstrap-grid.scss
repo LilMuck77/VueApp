@@ -1,5 +1,4 @@
 @import "mixins/banner";
-
 @include bsBanner(Grid);
 
 $include-column-box-sizing: true !default;
