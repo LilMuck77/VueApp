@@ -29,9 +29,10 @@
                         data-bs-toggle="collapse" type="button">
                     <span class="navbar-toggler-icon btn btn-primary btn-outline-light"></span>
                 </button>
-                <div class="collapse navbar-collapse fw-bold" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="myTab" role="tablist">
-                        <li class="nav-item">
+                <div class="collapse navbar-collapse fw-bold w-100" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 nav-justified justify-content-around w-100" id="myTab"
+                        role="tablist">
+                        <li class="nav-item mx-2">
                             <a aria-controls="exercises-tab-pane" aria-selected="true"
                                class="nav-link active btn btn-primary"
                                data-bs-target="#exercises-tab-pane"
@@ -58,13 +59,15 @@
                                 RECORDS <i class="fa-solid fa-trophy"></i></a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input aria-label="Search" class="form-control me-2" placeholder="Search" type="search">
-                        <button class="btn btn-outline-primary fw-bold" type="submit">SEARCH</button>
-                    </form>
+                    <!--                    <form class="d-flex">-->
+                    <!--                        <input aria-label="Search" class="form-control me-2" placeholder="Search" type="search">-->
+                    <!--                        <button class="btn btn-outline-primary fw-bold" type="submit">SEARCH</button>-->
+                    <!--                    </form>-->
                 </div>
             </div>
         </nav>
+
+        <!--move the navbar into the app when making the navbar a component otherwise it wont work.-->
 
         <div class="container px-0" id="app">
             <form class="needs-validation" novalidate>
@@ -87,7 +90,9 @@
                                 <!--                                v-for="(muscle, m) in muscleList" :key="muscle.muscleGroup"-->
                                 <!--                                v-bind:id="absHeading"-->
                                 <div class="accordion justify-content-evenly pb-3" id="accordionExample">
+
                                     <div id="abs" class="accordion-item">
+                                        <!--                                        <muscle-list muscleName="ABS" v-bind:list="muscleList"></muscle-list>-->
                                         <h2 class="accordion-header" id="absHeading">
                                             <button aria-controls="collapseAbs" class="accordion-button collapsed"
                                                     data-bs-target="#collapseAbs"
@@ -102,97 +107,15 @@
                                              id="collapseAbs">
                                             <div class="accordion-body">
                                                 <div class="body-content row">
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 strength">
-                                                        <h4>Strength
-                                                        </h4>
-                                                        <hr>
-                                                        <!--                                                        li v-for="(item, i) in aList.abs.strength"-->
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in absStrengthList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 endurance">
-                                                        <h4>Endurance</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in absEnduranceList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 balance">
-                                                        <h4>Balance</h4>
-                                                        <hr>
-
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in absBalanceList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 flexibility">
-                                                        <h4>Flexibility</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in absFlexibilityList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
+                                                    <exercise-list training="Strength" v-bind:list="absStrengthList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Endurance" v-bind:list="absEnduranceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Balance" v-bind:list="absBalanceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Flexibility"
+                                                                   v-bind:list="absFlexibilityList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,91 +134,15 @@
                                              id="collapseBack">
                                             <div class="accordion-body">
                                                 <div class=" body-content row">
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 strength">
-                                                        <h4>Strength</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in backStrengthList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 endurance">
-                                                        <h4>Endurance</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in backEnduranceList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 balance">
-                                                        <h4>Balance</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in backBalanceList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 flexibility">
-                                                        <h4>Flexibility</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in backFlexibilityList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                    <exercise-list training="Strength" v-bind:list="backStrengthList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Endurance" v-bind:list="backEnduranceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Balance" v-bind:list="backBalanceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Flexibility"
+                                                                   v-bind:list="backFlexibilityList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,91 +160,41 @@
                                              id="collapseBicep">
                                             <div class="accordion-body">
                                                 <div class=" body-content row">
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 strength">
-                                                        <h4>Strength</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in bicepStrengthList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 endurance">
-                                                        <h4>Endurance</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in bicepEnduranceList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 balance">
-                                                        <h4>Balance</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in bicepBalanceList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xl-3 col-sm-12 col-md-6 pb-4 flexibility">
-                                                        <h4>Flexibility</h4>
-                                                        <hr>
-                                                        <ul class="list-group list-group-flush border-bottom">
-                                                            <li v-for="(exercise, e) in bicepFlexibilityList"
-                                                                :key="exercise.exerciseName" class="list-group-item">
-                                                                <div class="form-check">
-                                                                    <span :class="'form-check-label'">{{exercise.exerciseName}}</span>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            v-on:click="deleteExercise(exercise)"><i
-                                                                            class="fa-solid fa-trash"></i></button>
-                                                                    <button class="btn btn-tiny float-sm-end"
-                                                                            data-bs-target="#editExerciseModal"
-                                                                            data-bs-toggle="modal"
-                                                                            type="button"
-                                                                            v-on:click="edit(exercise)"><i
-                                                                            class="fa-solid fa-pencil"></i></button>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                    <exercise-list training="Strength" v-bind:list="bicepStrengthList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Endurance" v-bind:list="bicepEnduranceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Balance" v-bind:list="bicepBalanceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Flexibility"
+                                                                   v-bind:list="bicepFlexibilityList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="chest" class="accordion-item">
+                                        <h2 class="accordion-header" id="chestHeading">
+                                            <button aria-controls="collapseChest" class="accordion-button collapsed"
+                                                    data-bs-target="#collapseChest"
+                                                    data-bs-toggle="collapse" type="button">
+                                                <b>CHEST</b>
+                                            </button>
+                                        </h2>
+                                        <div aria-labelledby="chestHeading" class="accordion-collapse collapse"
+                                             data-bs-parent="#accordionExample"
+                                             id="collapseChest">
+                                            <div class="acdeleteTheExercisecordion-body">
+                                                <div class=" body-content row">
+                                                    <exercise-list training="Strength" v-bind:list="chestStrengthList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Endurance" v-bind:list="chestEnduranceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Balance" v-bind:list="chestBalanceList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
+                                                    <exercise-list training="Flexibility"
+                                                                   v-bind:list="chestFlexibilityList"
+                                                                   @delete-exercise="deleteIt"></exercise-list>
                                                 </div>
                                             </div>
                                         </div>
@@ -434,112 +231,10 @@
                     </div>
                 </div>
             </form>
-            <div aria-hidden="true" aria-labelledby="exerciseModalTitle" class="modal fade" id="addExerciseModal"
-                 role="dialog"
-                 tabindex="-1">
-                <div class="modal-dialog" role="document">
-                    <form>
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exerciseModalTitle">Add Exercise </h5>
-                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
-                                        type="button"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label" for="exerciseName">Name of Exercise</label>
-                                    <input v-model="newExercise.exerciseName" class="form-control" id="exerciseName"
-                                           type="text">
+            <add-exercise-modal id="addExerciseModal" @add-exercise="addExercise">
+            </add-exercise-modal>
+            <!--            <delete-exercise-modal :id="id" @delete-exercise="deleteIt"></delete-exercise-modal>-->
 
-
-                                    <label for="muscleGroup"></label>
-                                    <select v-model="newExercise.muscleGroup" class="form-select" id="muscleGroup"
-                                            required>
-                                        <option disabled hidden selected value>Choose Muscle Group</option>
-                                        <option value="abs">ABS</option>
-                                        <option value="back">BACK</option>
-                                        <option value="biceps">BICEPS</option>
-                                        <option value="chest">CHEST</option>
-                                        <!--                                        <option value="legs">LEGS</option>-->
-                                        <!--                                        <option value="shoulders">SHOULDERS</option>-->
-                                        <!--                                        <option value="triceps">TRICEPS</option>-->
-                                    </select>
-
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="training">Training</label>
-                                    <select v-model="newExercise.training" class="form-select" id="training">
-                                        <option value="endurance">Endurance</option>
-                                        <option value="strength">Strength</option>
-                                        <option value="balance">Balance</option>
-                                        <option value="flexibility">Flexibility</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Nevermind
-                                </button>
-                                <button class="btn btn-primary" id="addExercise" type="submit"
-                                        v-on:click.prevent="addExercise">Add Exercise
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div aria-hidden="true" aria-labelledby="editModalTitle" class="modal fade" id="editExerciseModal"
-                 role="dialog"
-                 tabindex="-1">
-                <div class="modal-dialog" role="document">
-                    <form>
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editModalTitle">Edit Exercise</h5>
-                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
-                                        type="button"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label" for="editName">Name of Exercise</label>
-                                    <input v-model="editExercise.exerciseName" class="form-control" id="editName"
-                                           type="text">
-
-
-                                    <label for="editGroup"></label>
-                                    <select v-model="editExercise.muscleGroup" class="form-select" id="editGroup"
-                                            required>
-                                        <option disabled hidden selected value>Choose Muscle Group</option>
-                                        <option value="abs">ABS</option>
-                                        <option value="back">BACK</option>
-                                        <option value="biceps">BICEPS</option>
-                                        <option value="chest">CHEST</option>
-                                        <!--                                        <option value="legs">LEGS</option>-->
-                                        <!--                                        <option value="shoulders">SHOULDERS</option>-->
-                                        <!--                                        <option value="triceps">TRICEPS</option>-->
-                                    </select>
-
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="editTraining">Training</label>
-                                    <select v-model="editExercise.training" class="form-select" id="editTraining">
-                                        <option value="endurance">Endurance</option>
-                                        <option value="strength">Strength</option>
-                                        <option value="balance">Balance</option>
-                                        <option value="flexibility">Flexibility</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Nevermind
-                                </button>
-                                <button class="btn btn-primary" data-bs-dismiss="modal" id="editExercise" type="button"
-                                        v-on:click.prevent="edit">Save Changes
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
             <div aria-hidden="true" aria-labelledby="muscleModalTitle" class="modal fade" id="addMuscleGroupModal"
                  role="dialog"
@@ -603,6 +298,15 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="app.js"></script>
 <!--<script src="js/app-components.js"></script>-->
+<script src="components/exercise-list.js"></script>
+<script src="components/exercise-list-exercise.js"></script>
+<script src="components/app-modal.js"></script>
+<script src="components/add-exercise-modal.js"></script>
+<script src="components/edit-exercise-modal.js"></script>
+<script src="components/delete-exercise-modal.js"></script>
+<script src="components/muscle-list.js"></script>
+<script src="components/muscle-list-muscle.js"></script>
+
 <script>
     // start the app after all the other JS has been loaded
     app.mount('#app');
