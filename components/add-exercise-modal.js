@@ -8,31 +8,31 @@ app.component('AddExerciseModal', {
                 training: 'strength',
             },
         }
-
     },
     props: {
         id: {
             type: String,
             required: true
+        },
+        muscles: {
+            type: Array,
         }
-
     },
     emit: ['add-exercise'],
     methods: {
         addExercise: function () {
-            //add item to the list
-
-            // this.exerciseList.push(this.newExercise);
             this.$emit('add-exercise', this.newExercise)
 
 
-            //clear the form
             this.newExercise = {
                 exerciseName: '',
                 muscleGroup: '',
                 training: 'strength'
             };
         },
+    },
+    computed: {
+
     },
     template: `           
     <app-modal :id="id" title="Add Exercise">
@@ -43,16 +43,12 @@ app.component('AddExerciseModal', {
         </div>
         <div class="mb-3">
             <label for="muscleGroup" class="form-label">Muscle Group</label>
+            <!--            v for from muscle list on option-->
             <select v-model="newExercise.muscleGroup" class="form-select" id="muscleGroup"
                     required>
                 <option disabled hidden selected value>Choose Muscle Group</option>
-                <option value="abs">ABS</option>
-                <option value="back">BACK</option>
-                <option value="biceps">BICEPS</option>
-                <option value="chest">CHEST</option>
-                <!--<option value="legs">LEGS</option>-->
-                <!--<option value="shoulders">SHOULDERS</option>-->
-                <!--<option value="triceps">TRICEPS</option>-->
+<!--                v-model on options maybe-->
+                <option v-for="(option, o) in muscles" :value="option.muscleGroup" :key="muscles.muscleGroup">{{option.muscleGroup.toUpperCase()}}</option>
             </select>
         </div>
         <div class="mb-3">

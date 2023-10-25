@@ -2,25 +2,38 @@ app.component('ExerciseList', {
     props: {
         training: {
             type: String,
-            default: 'Training'
         },
-        list: {
+        allexercises: {
             type: Array,
             required: true,
         },
+        muscle: {
+            type: String,
+        },
+        muscles: {
+            type: Array,
+        }
+    },
+
+    computed: {
+
+        filteredExercises() {
+            return this.allexercises.filter((exercise) => exercise.training === this.training && exercise.muscleGroup === this.muscle);
+        }
+
     },
     emits: ['delete-exercise'],
-    //you can only have one level element
     template: `
             <div class="exercise-list col-xl-3 col-sm-12 col-md-6 pb-4">
-            <h4>{{training}}</h4>
+            <h5>{{training.toUpperCase()}}</h5>
             <hr>                                                     
             <ul class="list-group list-group-flush border-bottom">
-                <exercise-list-exercise v-for="(exercise, e) in list" 
+                <exercise-list-exercise v-for="(exercise, e) in filteredExercises" 
                 :key="exercise.exerciseName"
                 :exercise="exercise"
+                :muscles="muscles"
                 @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)"
-                ></exercise-list-exercise>
+                >{{exercise.exerciseName}}</exercise-list-exercise>
             </ul>
         </div>
     `

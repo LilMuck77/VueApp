@@ -75,140 +75,30 @@
                     <div class="tab-content pb-5" id="myTabContent">
                         <div aria-labelledby="exercises-tab" class="tab-pane fade show active"
                              id="exercises-tab-pane">
-                            <div class="row justify-content-center">
-                                <div class="row  pt-3 px-0">
-                                    <div class="col-md-4 col-sm-12">
-                                        <button class="btn btn-primary fw-bold w-100"
-                                                data-bs-target="#addExerciseModal"
-                                                data-bs-toggle="modal"
-                                                title="Add Exercise" type="button">
-                                            ADD EXERCISE
-                                            <i class="fa-solid fa-circle-plus"></i></button>
-                                    </div>
-                                </div>
 
-                                <!--                                v-for="(muscle, m) in muscleList" :key="muscle.muscleGroup"-->
-                                <!--                                v-bind:id="absHeading"-->
-                                <div class="accordion justify-content-evenly pb-3" id="accordionExample">
-
-                                    <div id="abs" class="accordion-item">
-                                        <!--                                                                                <muscle-list muscleName="ABS" v-bind:list="muscleList"></muscle-list>-->
-                                        <h2 class="accordion-header" id="absHeading">
-                                            <button aria-controls="collapseAbs" class="accordion-button collapsed"
-                                                    data-bs-target="#collapseAbs"
-                                                    data-bs-toggle="collapse" type="button">
-                                                <b>ABS</b>
-                                                <!--                                                {{muscle.muscleGroup}}-->
-                                            </button>
-                                        </h2>
-
-                                        <div aria-labelledby="absHeading" class="accordion-collapse collapse show"
-                                             data-bs-parent="#accordionExample"
-                                             id="collapseAbs">
-                                            <div class="accordion-body">
-                                                <div class="body-content row">
-                                                    <exercise-list training="Strength" v-bind:list="absStrengthList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Endurance" v-bind:list="absEnduranceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Balance" v-bind:list="absBalanceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Flexibility"
-                                                                   v-bind:list="absFlexibilityList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div id="back" class="accordion-item">
-                                        <h2 class="accordion-header" id="backHeading">
-                                            <button aria-controls="collapseBack" class="accordion-button collapsed"
-                                                    data-bs-target="#collapseBack"
-                                                    data-bs-toggle="collapse" type="button">
-                                                <b>BACK</b>
-                                            </button>
-                                        </h2>
-                                        <div aria-labelledby="backHeading" class="accordion-collapse collapse"
-                                             data-bs-parent="#accordionExample"
-                                             id="collapseBack">
-                                            <div class="accordion-body">
-                                                <div class=" body-content row">
-                                                    <exercise-list training="Strength" v-bind:list="backStrengthList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Endurance" v-bind:list="backEnduranceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Balance" v-bind:list="backBalanceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Flexibility"
-                                                                   v-bind:list="backFlexibilityList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="bicep" class="accordion-item">
-                                        <h2 class="accordion-header" id="bicepHeading">
-                                            <button aria-controls="collapseBicep" class="accordion-button collapsed"
-                                                    data-bs-target="#collapseBicep"
-                                                    data-bs-toggle="collapse" type="button">
-                                                <b>BICEP</b>
-                                            </button>
-                                        </h2>
-                                        <div aria-labelledby="bicepHeading" class="accordion-collapse collapse"
-                                             data-bs-parent="#accordionExample"
-                                             id="collapseBicep">
-                                            <div class="accordion-body">
-                                                <div class=" body-content row">
-                                                    <exercise-list training="Strength" v-bind:list="bicepStrengthList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Endurance" v-bind:list="bicepEnduranceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Balance" v-bind:list="bicepBalanceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Flexibility"
-                                                                   v-bind:list="bicepFlexibilityList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="chest" class="accordion-item">
-                                        <h2 class="accordion-header" id="chestHeading">
-                                            <button aria-controls="collapseChest" class="accordion-button collapsed"
-                                                    data-bs-target="#collapseChest"
-                                                    data-bs-toggle="collapse" type="button">
-                                                <b>CHEST</b>
-                                            </button>
-                                        </h2>
-                                        <div aria-labelledby="chestHeading" class="accordion-collapse collapse"
-                                             data-bs-parent="#accordionExample"
-                                             id="collapseChest">
-                                            <div class="accordion-body">
-                                                <div class=" body-content row">
-                                                    <exercise-list training="Strength" v-bind:list="chestStrengthList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Endurance" v-bind:list="chestEnduranceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Balance" v-bind:list="chestBalanceList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                    <exercise-list training="Flexibility"
-                                                                   v-bind:list="chestFlexibilityList"
-                                                                   @delete-exercise="deleteIt"></exercise-list>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-4 col-sm-12 float-end">
-                                        <button class="btn btn-success fw-bold w-100"
-                                                data-bs-target="#addMuscleGroupModal"
-                                                data-bs-toggle="modal"
-                                                title="Add Muscle Group" type="button">ADD MUSCLE
-                                            GROUP <i class="fa-solid fa-hand-holding-medical"></i>
-                                        </button>
-                                    </div>
+                            <div class="col-md-4 col-sm-12 pt-3">
+                                <button class="btn btn-primary fw-bold w-100"
+                                        data-bs-target="#addExerciseModal"
+                                        data-bs-toggle="modal"
+                                        title="Add Exercise" type="button">
+                                    ADD EXERCISE
+                                    <i class="fa-solid fa-circle-plus"></i></button>
+                            </div>
+                            <div class="row justify-content-end">
+                                <muscle-accordion
+                                        @delete-exercise="deleteIt"
+                                        :allexercises="exerciseList"
+                                        :muscles="muscleList"
+                                        :trainings="trainingList">
+                                </muscle-accordion>
+                                <div class="col-md-4 col-sm-12">
+                                    <button class="btn btn-success fw-bold w-100"
+                                            data-bs-target="#addMuscleModal"
+                                            data-bs-toggle="modal"
+                                            title="Add Muscle"
+                                            type="button">ADD MUSCLE
+                                        <i class="fa-solid fa-hand-holding-medical"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -221,6 +111,8 @@
                                 </button>
                             </div>
                         </div>
+
+
                         <div aria-labelledby="favorites-tab" class="tab-pane fade show" id="favorites-tab-pane">
                             <span>Favorites</span>
                         </div>
@@ -231,45 +123,10 @@
                     </div>
                 </div>
             </form>
-            <add-exercise-modal id="addExerciseModal" @add-exercise="addExercise">
+            <add-exercise-modal id="addExerciseModal" :muscles="muscleList" @add-exercise="addExercise">
             </add-exercise-modal>
-            <!--            <delete-exercise-modal :id="id" @delete-exercise="deleteIt"></delete-exercise-modal>-->
+            <add-muscle-modal id="addMuscleModal" @add-muscle="addMuscle"></add-muscle-modal>
 
-
-            <div aria-hidden="true" aria-labelledby="muscleModalTitle" class="modal fade" id="addMuscleGroupModal"
-                 role="dialog"
-                 tabindex="-1">
-                <div class="modal-dialog" role="document">
-                    <form>
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="muscleModalTitle">Add Muscle Group</h5>
-                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
-                                        type="button"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label" for="muscleName">Name of Muscle</label>
-                                    <input class="form-control" id="muscleName" type="text"
-                                           v-model="newMuscle.muscleGroup">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="color">Color</label>
-                                    <input class="form-control" id="color" type="color">
-
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Nevermind
-                                </button>
-                                <button class="btn btn-primary" id="addMuscle" type="submit"
-                                        v-on:click.prevent="addMuscle">Add Muscle Group
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </main>
 </div>
@@ -302,10 +159,11 @@
 <script src="components/exercise-list-exercise.js"></script>
 <script src="components/app-modal.js"></script>
 <script src="components/add-exercise-modal.js"></script>
+<script src="components/add-muscle-modal.js"></script>
 <script src="components/edit-exercise-modal.js"></script>
 <script src="components/delete-exercise-modal.js"></script>
-<script src="components/muscle-list.js"></script>
-<script src="components/muscle-list-muscle.js"></script>
+<script src="components/muscle-accordion-item.js"></script>
+<script src="components/muscle-accordion.js"></script>
 
 <script>
     // start the app after all the other JS has been loaded

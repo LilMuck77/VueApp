@@ -9,21 +9,20 @@ app.component('ExerciseListExercise', {
         exercise: {
             type: Object,
             required: true,
+        },
+        muscles: {
+            type: Array,
         }
     },
     emits: ['delete-exercise'],
 
 
     template: `
-            <li class="exercise-list-exercise list-group-item">
+            <li class="exercise-list-exercise list-group-item flex-wrap">
             <div class="form-check">
-                <span :class="'form-check-label'" v-bind:id="uid">{{exercise.exerciseName}}</span>
-<!--                <button class="btn btn-tiny float-sm-end"-->
-<!--                        v-on:click="deleteExercise()"><i-->
-<!--                        class="fa-solid fa-trash"></i>-->
-<!--                </button>-->
+                <span :class="'form-check-label'" class="exercise-name" v-bind:id="uid">{{exercise.exerciseName}}</span>
                 <delete-exercise-modal v-model="exercise" @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)"></delete-exercise-modal>
-                <edit-exercise-modal v-model="exercise"></edit-exercise-modal>
+                <edit-exercise-modal v-model="exercise" :muscles="muscles"></edit-exercise-modal>
             </div>
         </li>
 

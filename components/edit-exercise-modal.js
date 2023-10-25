@@ -11,8 +11,11 @@ app.component('EditExerciseModal', {
         modelValue: {
             type: Object,
             required: true,
-        }
+        },
 
+        muscles: {
+            type: Array,
+        }
     },
 
     emit: ['update:modelValue'],
@@ -42,14 +45,9 @@ app.component('EditExerciseModal', {
                         <select v-model="editExercise.muscleGroup" class="form-select" id="muscleGroup"
                                 required>
                             <option disabled hidden selected value>Choose Muscle Group</option>
-                            <option value="abs">ABS</option>
-                            <option value="back">BACK</option>
-                            <option value="biceps">BICEPS</option>
-                            <option value="chest">CHEST</option>
-                            <!--<option value="legs">LEGS</option>-->
-                            <!--<option value="shoulders">SHOULDERS</option>-->
-                            <!--<option value="triceps">TRICEPS</option>-->
+                            <option v-for="(option, o) in muscles" :value="option.muscleGroup" :key="muscles.muscleGroup">{{option.muscleGroup.toUpperCase()}}</option>
                         </select>
+                 
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="training">Training</label>

@@ -11,18 +11,18 @@ const app = Vue.createApp({
 
             newMuscle: {
                 muscleGroup: '',
-                color: '',
+
 
             },
 
             muscleList: [
-                {muscleGroup: 'abs', color: '#FFEB00'},
-                {muscleGroup: 'back', color: '#32FF19'},
-                {muscleGroup: 'biceps', color: '#1028FF'},
-                {muscleGroup: 'chest', color: '#FF1713'},
-                // {muscleGroup: 'legs', color: '#FF008B'},
-                // {muscleGroup: 'shoulders', color: '#fd7e14'},
-                // {muscleGroup: 'triceps', color: '#31d2f2'},
+                {muscleGroup: 'abs'},
+                {muscleGroup: 'back'},
+                {muscleGroup: 'biceps'},
+                {muscleGroup: 'chest'},
+                // {muscleGroup: 'legs'},
+                // {muscleGroup: 'shoulders'},
+                // {muscleGroup: 'triceps'},
             ],
             trainingList: [
                 {training: 'strength'},
@@ -30,6 +30,7 @@ const app = Vue.createApp({
                 {training: 'balance'},
                 {training: 'flexibility'},
             ],
+
 
             exerciseList: [
                 //ABS-STRENGTH
@@ -104,114 +105,15 @@ const app = Vue.createApp({
             this.exerciseList.splice(this.exerciseList.indexOf(exercise), 1);
         },
 
-        addMuscle() {
-            this.muscleList.push(this.newMuscle);
+        addMuscle: function (newMuscleFromModal) {
+            this.muscleList.push(newMuscleFromModal);
         },
 
 
     },
 
     computed: {
-        //ABS LISTS
-        absStrengthList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'strength' && exercise.muscleGroup === 'abs';
-            })
-        },
-        absEnduranceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'endurance' && exercise.muscleGroup === 'abs';
-            })
-        },
-        absBalanceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'balance' && exercise.muscleGroup === 'abs';
-            })
-        },
-        absFlexibilityList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'flexibility' && exercise.muscleGroup === 'abs';
-            })
-        },
 
-        //BACK LISTS
-        backStrengthList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'strength' && exercise.muscleGroup === 'back';
-            })
-        },
-        backEnduranceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'endurance' && exercise.muscleGroup === 'back';
-            })
-        },
-        backBalanceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'balance' && exercise.muscleGroup === 'back';
-            })
-        },
-        backFlexibilityList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'flexibility' && exercise.muscleGroup === 'back';
-            })
-        },
-
-        //BICEP LISTS
-        bicepStrengthList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'strength' && exercise.muscleGroup === 'biceps';
-            })
-        },
-        bicepEnduranceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'endurance' && exercise.muscleGroup === 'biceps';
-            })
-        },
-        bicepBalanceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'balance' && exercise.muscleGroup === 'biceps';
-            })
-        },
-        bicepFlexibilityList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'flexibility' && exercise.muscleGroup === 'biceps';
-            })
-        },
-
-        //CHEST LISTS
-        chestStrengthList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'strength' && exercise.muscleGroup === 'chest';
-            })
-        },
-        chestEnduranceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'endurance' && exercise.muscleGroup === 'chest';
-            })
-        },
-        chestBalanceList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'balance' && exercise.muscleGroup === 'chest';
-            })
-        },
-        chestFlexibilityList: function () {
-            return this.exerciseList.filter(function (exercise) {
-                return exercise.training === 'flexibility' && exercise.muscleGroup === 'chest';
-            })
-        },
-
-        //-----------
-        //MUSCLE LISTS
-        absList: function () {
-            return this.muscleList.filter(function (muscle) {
-                return muscle.muscleGroup === 'abs';
-            })
-        },
-        bicepsList: function () {
-            return this.muscleList.filter(function (muscle) {
-                return muscle.muscleGroup === 'biceps';
-            })
-        },
 
     },
 
