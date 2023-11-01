@@ -1,7 +1,118 @@
 const app = Vue.createApp({
 
     data: function () {
+
+
+        //DATA FOR ABS
+        let strengthForAbs = new TrainingGroup('Strength')
+            .addExercise(new Exercise('Machine Crunch'))
+            .addExercise(new Exercise('Cable Crunch'))
+            .addExercise(new Exercise('Sit Ups'));
+
+        let enduranceForAbs = new TrainingGroup('endurance')
+            .addExercise(new Exercise('Plank'))
+            .addExercise(new Exercise('Crunch It Out Crunches'));
+
+        let balanceForAbs = new TrainingGroup('balance')
+            .addExercise(new Exercise('Roll Out'))
+            .addExercise(new Exercise('Stability Ball Crunch Sit'));
+
+        let flexibilityForAbs = new TrainingGroup('flexibility')
+            .addExercise(new Exercise('Cobra Pose'))
+            .addExercise(new Exercise('Prone Abdominal Stretch'));
+
+        let abs = new MuscleGroup('Abs')
+            .addTrainingGroup(enduranceForAbs)
+            .addTrainingGroup(strengthForAbs)
+            .addTrainingGroup(balanceForAbs)
+            .addTrainingGroup(flexibilityForAbs);
+
+        //DATA FOR BACK
+        let strengthForBack = new TrainingGroup('Strength')
+            .addExercise(new Exercise('Deadlift'))
+            .addExercise(new Exercise('Bent-Over Row'))
+            .addExercise(new Exercise('Seated Row'));
+
+        let enduranceForBack = new TrainingGroup('endurance')
+            .addExercise(new Exercise('Pull-Up'))
+            .addExercise(new Exercise('Superman'));
+
+        let balanceForBack = new TrainingGroup('balance')
+            .addExercise(new Exercise('Back Leg Raises'))
+            .addExercise(new Exercise('Squats on Bosu Ball'));
+
+        let flexibilityForBack = new TrainingGroup('flexibility')
+            .addExercise(new Exercise('Childs Pose'))
+            .addExercise(new Exercise('Knee to Chest'))
+            .addExercise(new Exercise('Supine Twist'));
+
+        let back = new MuscleGroup('Back')
+            .addTrainingGroup(enduranceForBack)
+            .addTrainingGroup(strengthForBack)
+            .addTrainingGroup(balanceForBack)
+            .addTrainingGroup(flexibilityForBack);
+
+        //DATA FOR BICEPS
+        let strengthForBicep = new TrainingGroup('Strength')
+            .addExercise(new Exercise('Incline Dumbbell Curl'))
+            .addExercise(new Exercise('Concentration Curl'))
+            .addExercise(new Exercise('Single-Arm Preacher Curl'));
+
+        let enduranceForBicep = new TrainingGroup('endurance')
+            .addExercise(new Exercise('EZ-bar Curls'))
+            .addExercise(new Exercise('Zottman Curls'));
+
+        let balanceForBicep = new TrainingGroup('balance')
+            .addExercise(new Exercise('Rope Twist Curl'));
+
+        let flexibilityForBicep = new TrainingGroup('flexibility')
+            .addExercise(new Exercise('Wall Bicep Stretch'))
+            .addExercise(new Exercise('Doorway Bicep Stretch'));
+
+        let bicep = new MuscleGroup('Bicep')
+            .addTrainingGroup(enduranceForBicep)
+            .addTrainingGroup(strengthForBicep)
+            .addTrainingGroup(balanceForBicep)
+            .addTrainingGroup(flexibilityForBicep);
+
+
+        //DATA FOR CHEST
+        let strengthForChest = new TrainingGroup('Strength')
+            .addExercise(new Exercise('Dumbbell Bench Press'))
+            .addExercise(new Exercise('Incline Bench Press'))
+            .addExercise(new Exercise('Chest Fly'));
+
+        let enduranceForChest = new TrainingGroup('endurance')
+            .addExercise(new Exercise('Push Ups'))
+            .addExercise(new Exercise('DB Standing Flies'));
+
+        let balanceForChest = new TrainingGroup('balance')
+            .addExercise(new Exercise('Stability Ball Push Ups'))
+            .addExercise(new Exercise('Triangle Push Ups'));
+
+        let flexibilityForChest = new TrainingGroup('flexibility')
+            .addExercise(new Exercise('Seated Shoulder Ext.'))
+            .addExercise(new Exercise('Chest Opener Stretch.'));
+
+        let chest = new MuscleGroup('Chest')
+            .addTrainingGroup(enduranceForChest)
+            .addTrainingGroup(strengthForChest)
+            .addTrainingGroup(balanceForChest)
+            .addTrainingGroup(flexibilityForChest);
+
         return {
+            //ADD all  muscleGroups to muscleCollection
+            musclesCollection: new MusclesCollection()
+                .addMuscleGroup(abs)
+                .addMuscleGroup(back)
+                .addMuscleGroup(bicep)
+                .addMuscleGroup(chest),
+
+
+
+
+
+
 
             editExercise: {
                 exerciseName: '',
@@ -31,66 +142,6 @@ const app = Vue.createApp({
                 {training: 'flexibility'},
             ],
 
-
-            exerciseList: [
-                //ABS-STRENGTH
-                {id: 1, exerciseName: 'Machine Crunch', muscleGroup: 'abs', training: 'strength'},
-                {id: 2, exerciseName: 'Cable Crunch', muscleGroup: 'abs', training: 'strength'},
-                {id: 3, exerciseName: 'Sit Ups', muscleGroup: 'abs', training: 'strength'},
-                //ABS-ENDURANCE
-                {id: 4, exerciseName: 'Plank', muscleGroup: 'abs', training: 'endurance'},
-                {id: 5, exerciseName: 'Crunch It Out Crunches', muscleGroup: 'abs', training: 'endurance'},
-                //ABS-BALANCE
-                {id: 6, exerciseName: 'Roll Out', muscleGroup: 'abs', training: 'balance'},
-                {id: 7, exerciseName: 'Stability Ball Crunch Sit', muscleGroup: 'abs', training: 'balance'},
-                //ABS-FLEXIBILITY
-                {id: 8, exerciseName: 'Cat Cow Stretch', muscleGroup: 'abs', training: 'flexibility'},
-                {id: 9, exerciseName: 'Cobra Pose', muscleGroup: 'abs', training: 'flexibility'},
-                {id: 10, exerciseName: 'Prone Abdominal Stretch', muscleGroup: 'abs', training: 'flexibility'},
-
-                //BACK-STRENGTH
-                {id: 11, exerciseName: 'Deadlift', muscleGroup: 'back', training: 'strength'},
-                {id: 12, exerciseName: 'Bent-Over Row', muscleGroup: 'back', training: 'strength'},
-                {id: 13, exerciseName: 'Seated Row', muscleGroup: 'back', training: 'strength'},
-                //BACK-ENDURANCE
-                {id: 14, exerciseName: 'Pull-Up', muscleGroup: 'back', training: 'endurance'},
-                {id: 15, exerciseName: 'Superman', muscleGroup: 'back', training: 'endurance'},
-                //BACK-BALANCE
-                {id: 16, exerciseName: 'Back Leg Raises', muscleGroup: 'back', training: 'balance'},
-                {id: 17, exerciseName: 'Squats on Bosu Ball', muscleGroup: 'back', training: 'balance'},
-                //BACK-FLEXIBILITY
-                {id: 18, exerciseName: 'Childs Pose', muscleGroup: 'back', training: 'flexibility'},
-                {id: 19, exerciseName: 'Knee to Chest', muscleGroup: 'back', training: 'flexibility'},
-                {id: 20, exerciseName: 'Supine Twist', muscleGroup: 'back', training: 'flexibility'},
-
-                //BICEP-STRENGTH
-                {id: 21, exerciseName: 'Incline Dumbbell Curl', muscleGroup: 'biceps', training: 'strength'},
-                {id: 22, exerciseName: 'Concentration Curl', muscleGroup: 'biceps', training: 'strength'},
-                {id: 23, exerciseName: 'Single-Arm Preacher Curl', muscleGroup: 'biceps', training: 'strength'},
-                //BICEP-ENDURANCE
-                {id: 24, exerciseName: 'EZ-bar Curls', muscleGroup: 'biceps', training: 'endurance'},
-                {id: 25, exerciseName: 'Zottman Curls', muscleGroup: 'biceps', training: 'endurance'},
-                //BICEP-BALANCE
-                {id: 26, exerciseName: 'Rope Twist Curl', muscleGroup: 'biceps', training: 'balance'},
-                //BICEP-FLEXIBILITY
-                {id: 27, exerciseName: 'Wall Bicep Stretch', muscleGroup: 'biceps', training: 'flexibility'},
-                {id: 28, exerciseName: 'Doorway Bicep Stretch', muscleGroup: 'biceps', training: 'flexibility'},
-
-                //CHEST-STRENGTH
-                {id: 29, exerciseName: 'Dumbbell Bench Press', muscleGroup: 'chest', training: 'strength'},
-                {id: 30, exerciseName: 'Incline Bench Press', muscleGroup: 'chest', training: 'strength'},
-                {id: 31, exerciseName: 'Chest Fly', muscleGroup: 'chest', training: 'strength'},
-                //CHEST-ENDURANCE
-                {id: 32, exerciseName: 'Push Ups', muscleGroup: 'chest', training: 'endurance'},
-                {id: 33, exerciseName: 'DB Standing Flies', muscleGroup: 'chest', training: 'endurance'},
-                //CHEST-BALANCE
-                {id: 34, exerciseName: 'Stability Ball Push Ups', muscleGroup: 'chest', training: 'balance'},
-                {id: 35, exerciseName: 'Triangle Push Ups', muscleGroup: 'chest', training: 'balance'},
-                //CHEST-FLEXIBILITY
-                {id: 35, exerciseName: 'Seated Shoulder Ext.', muscleGroup: 'chest', training: 'flexibility'},
-                {id: 36, exerciseName: 'Chest Opener Stretch.', muscleGroup: 'chest', training: 'flexibility'},
-            ],
-
         }
     },
 
@@ -99,7 +150,8 @@ const app = Vue.createApp({
         addExercise: function (newExerciseFromModal) {
             //add item to the list
             this.exerciseList.push(newExerciseFromModal);
-
+            // this.list.findMuscle('abs').findTraining('strength').addExercise(...)
+            // this.list.muscles['abs']
         },
         deleteIt(exercise) {
             this.exerciseList.splice(this.exerciseList.indexOf(exercise), 1);
@@ -113,6 +165,9 @@ const app = Vue.createApp({
     },
 
     computed: {
+        filteredMuscles() {
+            return this.allexercises.filter((muscleGroup) => muscleGroup.muscleGroup === this.muscleGroup);
+        }
 
 
     },
@@ -121,7 +176,7 @@ const app = Vue.createApp({
     mounted: function () {
 
         if (localStorage.getItem('exerciseList')) {
-            this.exerciseList = JSON.parse(localStorage.getItem('exerciseList'))
+            // this.exerciseList = JSON.parse(localStorage.getItem('exerciseList'))
         }
         //if list exists in storage, replace current list
 
@@ -133,7 +188,7 @@ const app = Vue.createApp({
         exerciseList: {
             //call this function when an item changes
             handler: function (newList) {
-                localStorage.setItem('exerciseList', JSON.stringify(this.exerciseList));
+                // localStorage.setItem('exerciseList', JSON.stringify(this.exerciseList));
             },
             deep: true, //tells vue to watch nested properties
         }

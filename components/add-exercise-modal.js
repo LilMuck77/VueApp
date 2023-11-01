@@ -1,12 +1,13 @@
 app.component('AddExerciseModal', {
     data() {
         return {
-            newExercise: {
-                id: Math.floor(Math.random() * 10e16),
-                exerciseName: '',
-                muscleGroup: '',
-                training: 'strength',
-            },
+            // newExercise: {
+            //     id: Math.floor(Math.random() * 10e16),
+            //     exerciseName: '',
+            //     muscleGroup: '',
+            //     training: 'strength',
+            // },
+            newExercise: new Exercise()
         }
     },
     props: {
@@ -24,11 +25,12 @@ app.component('AddExerciseModal', {
             this.$emit('add-exercise', this.newExercise)
 
 
-            this.newExercise = {
-                exerciseName: '',
-                muscleGroup: '',
-                training: 'strength'
-            };
+            // this.newExercise = {
+            //     exerciseName: '',
+            //     muscleGroup: '',
+            //     training: 'strength'
+            // };
+            this.newExercise = new Exercise();
         },
     },
     computed: {

@@ -1,10 +1,13 @@
 app.component('ExerciseList', {
+    data() {
+        return {}
+    },
     props: {
         training: {
             type: String,
         },
         allexercises: {
-            type: Array,
+            type: Object,
             required: true,
         },
         muscle: {
@@ -17,18 +20,18 @@ app.component('ExerciseList', {
 
     computed: {
 
-        filteredExercises() {
-            return this.allexercises.filter((exercise) => exercise.training === this.training && exercise.muscleGroup === this.muscle);
-        }
+        // filteredExercises() {
+        //     return this.allexercises.filter((exercise) => exercise.training === this.training && exercise.muscleGroup === this.muscle);
+        // }
 
     },
     emits: ['delete-exercise'],
     template: `
             <div class="exercise-list col-xl-3 col-sm-12 col-md-6 pb-4">
-            <h5>{{training.toUpperCase()}}</h5>
+            <h5>{{training}}</h5>
             <hr>                                                     
             <ul class="list-group list-group-flush border-bottom">
-                <exercise-list-exercise v-for="(exercise, e) in filteredExercises" 
+                <exercise-list-exercise v-for="exercise in allexercises.listOfMuscles.listOfTrainings" 
                 :key="exercise.exerciseName"
                 :exercise="exercise"
                 :muscles="muscles"

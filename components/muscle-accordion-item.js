@@ -5,7 +5,7 @@ app.component('MuscleAccordionItem', {
             default: ''
         },
         allexercises: {
-            type: Array,
+            type: Object,
         },
         muscle: {
             type: Object,
@@ -34,7 +34,7 @@ app.component('MuscleAccordionItem', {
                  <button :aria-controls="'collapse' + name" class="accordion-button collapsed"
                         :data-bs-target="'#collapse' + name"
                         data-bs-toggle="collapse" type="button">
-                    <b>{{name.toUpperCase()}}</b>
+                    <b>{{name}}</b>
                    
                 </button>
                  <button class="btn btn-tiny px-2 mx-0"
@@ -54,7 +54,7 @@ app.component('MuscleAccordionItem', {
                  :id="'collapse' + name">
                 <div class="accordion-body">
                     <div class="body-content row">
-                        <exercise-list v-for="(training, t) in trainings" 
+                        <exercise-list v-for="training in allexercises" 
                         :key="training" 
                         :training="training.training" 
                         :allexercises="allexercises"

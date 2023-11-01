@@ -7,7 +7,7 @@ app.component('ExerciseListExercise', {
 
     props: {
         exercise: {
-            type: Object,
+            type: Function,
             required: true,
         },
         muscles: {

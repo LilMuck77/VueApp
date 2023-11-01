@@ -6,7 +6,7 @@ app.component('MuscleAccordion', {
     },
     props: {
         allexercises: {
-            type: Array,
+            type: Object,
 
         },
         muscles: {
@@ -20,17 +20,21 @@ app.component('MuscleAccordion', {
     },
     method: {},
 
-    computed: {},
+    computed: {
+        trainingsList() {
+            return this.allexercises.listOfMuscles.filter((training) => TrainingGroup.training === this.training);
+        }
+    },
 
     emits: ['delete-exercise'],
 
     template: `
                 <div class="muscle-accordion accordion justify-content-evenly" id="accordionExample">
-                    <muscle-accordion-item v-for="(muscle, m) in muscles" 
+                    <muscle-accordion-item v-for="muscle in allexercises.listOfMuscles" 
                     :key="muscle" 
                     :muscle="muscle "
                     :trainings="trainings" 
-                    :allexercises="allexercises" 
+                    :allexercises="trainingsList" 
                     :name="muscle.muscleGroup" 
                     :muscles="muscles"
                     @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)"></muscle-accordion-item>

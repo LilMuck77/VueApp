@@ -87,7 +87,7 @@
                             <div class="row justify-content-end">
                                 <muscle-accordion
                                         @delete-exercise="deleteIt"
-                                        :allexercises="exerciseList"
+                                        :allexercises="musclesCollection"
                                         :muscles="muscleList"
                                         :trainings="trainingList">
                                 </muscle-accordion>
@@ -153,6 +153,7 @@
 
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app-models.js"></script>
 <script src="app.js"></script>
 <!--<script src="js/app-components.js"></script>-->
 <script src="components/exercise-list.js"></script>
