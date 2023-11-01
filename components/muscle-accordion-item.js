@@ -54,10 +54,10 @@ app.component('MuscleAccordionItem', {
                  :id="'collapse' + name">
                 <div class="accordion-body">
                     <div class="body-content row">
-                        <exercise-list v-for="training in allexercises" 
+                        <exercise-list v-for="training in muscle.listOfTrainings" 
                         :key="training" 
-                        :training="training.training" 
-                        :allexercises="allexercises"
+                        :training="training" 
+                        :allexercises="training.listOfTrainings"
                         :muscle="muscle.muscleGroup"
                         :muscles="muscles"
                         @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)">

@@ -9,15 +9,15 @@ const app = Vue.createApp({
             .addExercise(new Exercise('Cable Crunch'))
             .addExercise(new Exercise('Sit Ups'));
 
-        let enduranceForAbs = new TrainingGroup('endurance')
+        let enduranceForAbs = new TrainingGroup('Endurance')
             .addExercise(new Exercise('Plank'))
             .addExercise(new Exercise('Crunch It Out Crunches'));
 
-        let balanceForAbs = new TrainingGroup('balance')
+        let balanceForAbs = new TrainingGroup('Balance')
             .addExercise(new Exercise('Roll Out'))
             .addExercise(new Exercise('Stability Ball Crunch Sit'));
 
-        let flexibilityForAbs = new TrainingGroup('flexibility')
+        let flexibilityForAbs = new TrainingGroup('Flexibility')
             .addExercise(new Exercise('Cobra Pose'))
             .addExercise(new Exercise('Prone Abdominal Stretch'));
 
@@ -33,15 +33,15 @@ const app = Vue.createApp({
             .addExercise(new Exercise('Bent-Over Row'))
             .addExercise(new Exercise('Seated Row'));
 
-        let enduranceForBack = new TrainingGroup('endurance')
+        let enduranceForBack = new TrainingGroup('Endurance')
             .addExercise(new Exercise('Pull-Up'))
             .addExercise(new Exercise('Superman'));
 
-        let balanceForBack = new TrainingGroup('balance')
+        let balanceForBack = new TrainingGroup('Balance')
             .addExercise(new Exercise('Back Leg Raises'))
             .addExercise(new Exercise('Squats on Bosu Ball'));
 
-        let flexibilityForBack = new TrainingGroup('flexibility')
+        let flexibilityForBack = new TrainingGroup('Flexibility')
             .addExercise(new Exercise('Childs Pose'))
             .addExercise(new Exercise('Knee to Chest'))
             .addExercise(new Exercise('Supine Twist'));
@@ -58,14 +58,14 @@ const app = Vue.createApp({
             .addExercise(new Exercise('Concentration Curl'))
             .addExercise(new Exercise('Single-Arm Preacher Curl'));
 
-        let enduranceForBicep = new TrainingGroup('endurance')
+        let enduranceForBicep = new TrainingGroup('Endurance')
             .addExercise(new Exercise('EZ-bar Curls'))
             .addExercise(new Exercise('Zottman Curls'));
 
-        let balanceForBicep = new TrainingGroup('balance')
+        let balanceForBicep = new TrainingGroup('Balance')
             .addExercise(new Exercise('Rope Twist Curl'));
 
-        let flexibilityForBicep = new TrainingGroup('flexibility')
+        let flexibilityForBicep = new TrainingGroup('Flexibility')
             .addExercise(new Exercise('Wall Bicep Stretch'))
             .addExercise(new Exercise('Doorway Bicep Stretch'));
 
@@ -82,15 +82,15 @@ const app = Vue.createApp({
             .addExercise(new Exercise('Incline Bench Press'))
             .addExercise(new Exercise('Chest Fly'));
 
-        let enduranceForChest = new TrainingGroup('endurance')
+        let enduranceForChest = new TrainingGroup('Endurance')
             .addExercise(new Exercise('Push Ups'))
             .addExercise(new Exercise('DB Standing Flies'));
 
-        let balanceForChest = new TrainingGroup('balance')
+        let balanceForChest = new TrainingGroup('Balance')
             .addExercise(new Exercise('Stability Ball Push Ups'))
             .addExercise(new Exercise('Triangle Push Ups'));
 
-        let flexibilityForChest = new TrainingGroup('flexibility')
+        let flexibilityForChest = new TrainingGroup('Flexibility')
             .addExercise(new Exercise('Seated Shoulder Ext.'))
             .addExercise(new Exercise('Chest Opener Stretch.'));
 

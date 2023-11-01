@@ -28,10 +28,10 @@ app.component('ExerciseList', {
     emits: ['delete-exercise'],
     template: `
             <div class="exercise-list col-xl-3 col-sm-12 col-md-6 pb-4">
-            <h5>{{training}}</h5>
+            <h5>{{training.training}}</h5>
             <hr>                                                     
             <ul class="list-group list-group-flush border-bottom">
-                <exercise-list-exercise v-for="exercise in allexercises.listOfMuscles.listOfTrainings" 
+                <exercise-list-exercise v-for="exercise in training.listOfExercises" 
                 :key="exercise.exerciseName"
                 :exercise="exercise"
                 :muscles="muscles"
