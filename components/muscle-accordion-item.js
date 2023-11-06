@@ -4,18 +4,10 @@ app.component('MuscleAccordionItem', {
             type: String,
             default: ''
         },
-        allexercises: {
-            type: Object,
-        },
+
         muscle: {
             type: Object,
         },
-        trainings: {
-            type: Array,
-        },
-        muscles: {
-            type: Array,
-        }
 
     },
 
@@ -37,10 +29,7 @@ app.component('MuscleAccordionItem', {
                     <b>{{name}}</b>
                    
                 </button>
-                 <button class="btn btn-tiny px-2 mx-0"
-                    type="button">
-                    <i class="fa-solid fa-file-pen"></i>
-                </button>
+      
                 <button class="btn btn-tiny px-2 mx-0"
                     type="button">
                     <i class="fa-regular fa-trash-can"></i>
@@ -57,9 +46,7 @@ app.component('MuscleAccordionItem', {
                         <exercise-list v-for="training in muscle.listOfTrainings" 
                         :key="training" 
                         :training="training" 
-                        :allexercises="training.listOfTrainings"
-                        :muscle="muscle.muscleGroup"
-                        :muscles="muscles"
+                       
                         @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)">
                         </exercise-list>
                          

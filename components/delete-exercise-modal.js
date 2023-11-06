@@ -3,7 +3,8 @@ app.component('DeleteExerciseModal', {
         return {
             deleteExercise: {
                 ...this.modelValue
-            }
+            },
+
         }
 
     },
@@ -11,8 +12,11 @@ app.component('DeleteExerciseModal', {
         modelValue: {
             type: Object,
             required: true,
-        }
+        },
+        id: {
+            type: String,
 
+        }
     },
 
     emits: ['delete-exercise'],
@@ -28,11 +32,11 @@ app.component('DeleteExerciseModal', {
             <span class="delete-exercise-modal">
               <button class="btn btn-tiny float-sm-end"
                     type="button"
-                    :data-bs-target="'#deleteModal' + deleteExercise.id"
+                    :data-bs-target="'#deleteModal' + id"
                     data-bs-toggle="modal">
                     <i class="fa-solid fa-trash"></i>
                 </button>
-                <app-modal :id="'deleteModal' + deleteExercise.id" title="Delete Exercise">
+                <app-modal :id="'deleteModal' + id" title="Delete Exercise">
                      <div class="mb-3">
                         <label class="form-label" for="approveDelete">Are you sure you want to DELETE - <b>"{{modelValue.exerciseName}}"</b>?</label>
                     </div>

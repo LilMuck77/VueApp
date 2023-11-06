@@ -1,11 +1,8 @@
 app.component('AddMuscleModal', {
     data() {
         return {
-            newMuscle: {
-                muscleGroup: '',
-                // color: '',
+            newMuscle: new MuscleGroup()
 
-            },
         }
     },
     props: {
@@ -13,20 +10,14 @@ app.component('AddMuscleModal', {
             type: String,
             required: true
         },
-        muscles: {
-            type: Array,
-        }
     },
     emit: ['add-muscle'],
     methods: {
         addMuscle: function () {
             this.$emit('add-muscle', this.newMuscle)
 
-            //grab option of muscles from muscles list and make it equal the muscleGroup for newExercise
+            this.newMuscle = new MuscleGroup();
 
-            this.newMuscle = {
-                muscleGroup: '',
-            };
         },
     },
     computed: {},

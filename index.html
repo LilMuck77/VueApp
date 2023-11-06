@@ -75,21 +75,10 @@
                     <div class="tab-content pb-5" id="myTabContent">
                         <div aria-labelledby="exercises-tab" class="tab-pane fade show active"
                              id="exercises-tab-pane">
-
-                            <div class="col-md-4 col-sm-12 pt-3">
-                                <button class="btn btn-primary fw-bold w-100"
-                                        data-bs-target="#addExerciseModal"
-                                        data-bs-toggle="modal"
-                                        title="Add Exercise" type="button">
-                                    ADD EXERCISE
-                                    <i class="fa-solid fa-circle-plus"></i></button>
-                            </div>
                             <div class="row justify-content-end">
                                 <muscle-accordion
                                         @delete-exercise="deleteIt"
-                                        :allexercises="musclesCollection"
-                                        :muscles="muscleList"
-                                        :trainings="trainingList">
+                                        :exercises="musclesCollection">
                                 </muscle-accordion>
                                 <div class="col-md-4 col-sm-12">
                                     <button class="btn btn-success fw-bold w-100"
@@ -123,8 +112,6 @@
                     </div>
                 </div>
             </form>
-            <add-exercise-modal id="addExerciseModal" :muscles="muscleList" @add-exercise="addExercise">
-            </add-exercise-modal>
             <add-muscle-modal id="addMuscleModal" @add-muscle="addMuscle"></add-muscle-modal>
 
         </div>

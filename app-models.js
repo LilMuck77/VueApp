@@ -1,5 +1,6 @@
-function Exercise(exerciseName) {
-    this.exerciseName = exerciseName;
+function Exercise(exerciseName, id) {
+    this.exerciseName = exerciseName ?? '';
+
 
     //NOTE: these functions for making a record high or favorite
     //get stored in here. Then on the component that uses them
@@ -16,7 +17,34 @@ function Exercise(exerciseName) {
     //
     // this.Favorite = false;
 
-    return this;
+
+//want to have the logic in here eventually
+    // this.deleteIt = function() {
+    //     // this.musclesCollection.splice(this.musclesCollection.indexOf(exercise), 1);
+    //
+    //
+    //     // Iterate through each muscle object in the musclesCollection
+    //     for (let i = 0; i < this.musclesCollection.listOfMuscles.length; i++) {
+    //         const muscleGroup = this.musclesCollection.listOfMuscles[i];
+    //
+    //         // Iterate through each training object in the muscle
+    //         for (let j = 0; j < muscleGroup.listOfTrainings.length; j++) {
+    //             const training = muscleGroup.listOfTrainings[j];
+    //
+    //             // Find the index of the exercise within the training object
+    //             const exerciseIndex = training.listOfExercises.findIndex(
+    //                 (ex) => ex.name === exercise.name
+    //             );
+    //
+    //             // If exerciseIndex is found (greater than -1), remove the exercise from the array
+    //             if (exerciseIndex > -1) {
+    //                 training.listOfExercises.splice(exerciseIndex, 1);
+    //                 return; // Exit the function once the exercise is deleted
+    //             }
+    //         }
+    //     }
+    //
+    // }
 
 }
 

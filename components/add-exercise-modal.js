@@ -7,17 +7,21 @@ app.component('AddExerciseModal', {
             //     muscleGroup: '',
             //     training: 'strength',
             // },
-            newExercise: new Exercise()
+            newExercise: new Exercise(),
         }
     },
     props: {
+        modelValue: {
+            type: Object,
+
+        },
         id: {
             type: String,
-            required: true
+
         },
-        muscles: {
-            type: Array,
-        }
+        training: {
+            type: Object,
+        },
     },
     emit: ['add-exercise'],
     methods: {
@@ -25,52 +29,42 @@ app.component('AddExerciseModal', {
             this.$emit('add-exercise', this.newExercise)
 
 
-            // this.newExercise = {
-            //     exerciseName: '',
-            //     muscleGroup: '',
-            //     training: 'strength'
-            // };
+            this.training.addExercise(this.newExercise);
+
+
             this.newExercise = new Exercise();
         },
     },
     computed: {
 
     },
-    template: `           
-    <app-modal :id="id" title="Add Exercise">
-         <div class="mb-3">
-            <label class="form-label" for="exerciseName">Name of Exercise</label>
-            <input v-model="newExercise.exerciseName" class="form-control" id="exerciseName"
-                   type="text">
-        </div>
-        <div class="mb-3">
-            <label for="muscleGroup" class="form-label">Muscle Group</label>
-            <!--            v for from muscle list on option-->
-            <select v-model="newExercise.muscleGroup" class="form-select" id="muscleGroup"
-                    required>
-                <option disabled hidden selected value>Choose Muscle Group</option>
-<!--                v-model on options maybe-->
-                <option v-for="(option, o) in muscles" :value="option.muscleGroup" :key="muscles.muscleGroup">{{option.muscleGroup.toUpperCase()}}</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="training">Training</label>
-            <select v-model="newExercise.training" class="form-select" id="training">
-                <option value="endurance">Endurance</option>
-                <option value="strength">Strength</option>
-                <option value="balance">Balance</option>
-                <option value="flexibility">Flexibility</option>
-            </select>
-        </div>
-        <template #footer>
-        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Nevermind
+    template: ` 
+     <span>
+     <!--         + trainingList     try to add to bs target the target should be the training of the muscle-->
+         <button class="btn btn-tiny w-30"
+            :data-bs-target="'#addExerciseModal' + id"
+            data-bs-toggle="modal"
+            title="Add Exercise" type="button">
+            <i class="fa-solid fa-circle-plus"></i>
         </button>
-        <button class="btn btn-primary" 
-                id="addExercise" type="submit"
-                @click.prevent="addExercise">Add Exercise
-        </button>
-        </template>
-    </app-modal>
+        <!--         + trainingList-->
+        <app-modal :id="'addExerciseModal' + id" title="Add Exercise">
+             <div class="mb-3">
+                <label class="form-label" for="exerciseName">Name of Exercise</label>
+                <input v-model="newExercise.exerciseName" class="form-control" id="exerciseName"
+                       type="text">
+            </div>
+           
+            <template #footer>
+            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Nevermind
+            </button>
+            <button class="btn btn-primary" 
+                    id="addExercise" type="submit"
+                    @click.prevent="addExercise">Add Exercise
+            </button>
+            </template>
+        </app-modal>
+    </span>
 
     `
 })

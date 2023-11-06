@@ -7,22 +7,25 @@ app.component('ExerciseListExercise', {
 
     props: {
         exercise: {
-            type: Function,
+            type: Object,
             required: true,
         },
-        muscles: {
-            type: Array,
-        }
+
     },
     emits: ['delete-exercise'],
+
+    method: {
+        //eventually want to move it to here
+        // this.exerciseName.deleteIt();
+    },
 
 
     template: `
             <li class="exercise-list-exercise list-group-item flex-wrap">
             <div class="form-check">
-                <span :class="'form-check-label'" class="exercise-name" v-bind:id="uid">{{exercise.exerciseName}}</span>
-                <delete-exercise-modal v-model="exercise" @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)"></delete-exercise-modal>
-                <edit-exercise-modal v-model="exercise" :muscles="muscles"></edit-exercise-modal>
+                <span :class="'form-check-label'" class="exercise-name" :id="uid">{{exercise.exerciseName}}</span>
+                <delete-exercise-modal :id="uid" v-model="exercise" @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)"></delete-exercise-modal>
+                <edit-exercise-modal v-model="exercise"></edit-exercise-modal>
             </div>
         </li>
 

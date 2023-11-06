@@ -108,68 +108,56 @@ const app = Vue.createApp({
                 .addMuscleGroup(bicep)
                 .addMuscleGroup(chest),
 
-
-
-
-
-
-
-            editExercise: {
-                exerciseName: '',
-                muscleGroup: '',
-                training: '',
-            },
-
-            newMuscle: {
-                muscleGroup: '',
-
-
-            },
-
-            muscleList: [
-                {muscleGroup: 'abs'},
-                {muscleGroup: 'back'},
-                {muscleGroup: 'biceps'},
-                {muscleGroup: 'chest'},
-                // {muscleGroup: 'legs'},
-                // {muscleGroup: 'shoulders'},
-                // {muscleGroup: 'triceps'},
-            ],
-            trainingList: [
-                {training: 'strength'},
-                {training: 'endurance'},
-                {training: 'balance'},
-                {training: 'flexibility'},
-            ],
-
         }
     },
+
+    //a lot to switch over. need to switch all data to use muscle collections
+    //need to figure out delete and edit
+    //working on add. need to add to the modelvalue of the strength and maybe the muscle too.
+    //got to figure it out. good luck muck
+
 
     //methods: usually 'events' triggered by v-on:
     methods: {
         addExercise: function (newExerciseFromModal) {
-            //add item to the list
-            this.exerciseList.push(newExerciseFromModal);
+            // this.musclesCollection.push(newExerciseFromModal);
             // this.list.findMuscle('abs').findTraining('strength').addExercise(...)
             // this.list.muscles['abs']
+
+            for (let muscleGroup of this.musclesCollection.listOfMuscles) {
+                for (let training of muscleGroup.listOfTrainings) {
+                    training.listOfExercises.push(newExerciseFromModal);
+                }
+            }
+
         },
         deleteIt(exercise) {
-            this.exerciseList.splice(this.exerciseList.indexOf(exercise), 1);
+
+            for (let muscleGroup of this.musclesCollection.listOfMuscles) {
+                for (let training of muscleGroup.listOfTrainings) {
+                    let exerciseIndex = training.listOfExercises.indexOf(exercise);
+                    if (exerciseIndex !== -1) {
+                        training.listOfExercises.splice(exerciseIndex, 1);
+                        return;
+                    }
+                }
+            }
+
         },
 
         addMuscle: function (newMuscleFromModal) {
-            this.muscleList.push(newMuscleFromModal);
+            this.musclesCollection.listOfMuscles.push(newMuscleFromModal);
+
+            newMuscleFromModal.addTrainingGroup(new TrainingGroup('Strength'))
+                .addTrainingGroup(new TrainingGroup('Endurance'))
+                .addTrainingGroup(new TrainingGroup('Balance'))
+                .addTrainingGroup(new TrainingGroup('Flexibility'));
+
+
         },
-
-
     },
 
     computed: {
-        filteredMuscles() {
-            return this.allexercises.filter((muscleGroup) => muscleGroup.muscleGroup === this.muscleGroup);
-        }
-
-
     },
 
     //mounted:  called after the instance has been mounted,
