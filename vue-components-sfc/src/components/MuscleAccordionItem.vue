@@ -1,70 +1,58 @@
 <script>
 import ExerciseList from "./ExerciseList.vue";
+import TrainingModel from "@/models/Training";
+import MuscleModel from "@/models/Muscle";
+import db from "@/models/Firebase";
+import TrainingList from "@/components/TrainingList.vue";
+import DeleteMuscleModal from "@/components/DeleteMuscleModal.vue";
 
 export default {
   name: "MuscleAccordionItem",
-  components: {ExerciseList},
-  props: {
-    name: {
-      type: String,
-      default: ''
-    },
-
-    muscle: {
-      type: Object,
-    },
-
+  components: {DeleteMuscleModal, TrainingList, ExerciseList},
+  data() {
+    return {
+      trainings: [],
+    }
   },
-
-  method: {},
-
-
-  computed: {},
-  emits: ['delete-exercise'],
+  props: {
+    muscle: {
+      type: MuscleModel,
+    },
+  },
+  created() {
+    //create trainings of the muscle and update firestore
+    db.collection(MuscleModel.collectionName)
+        .doc(this.muscle.id)
+        .collection(TrainingModel.collectionName)
+        .withConverter(TrainingModel)
+        .onSnapshot(snapshot => {
+          this.trainings = snapshot.docs.map(doc => doc.data());
+        });
+  },
 }
 </script>
-
 <template>
-  <div :id="name" class="muscle-accordion-item accordion-item">
-
-    <h1 class="accordion-header" :id="name + 'Heading'">
+  <div :id="muscle.id" class="muscle-accordion-item accordion-item custom-background">
+    <h1 class="accordion-header" :id="muscle.id + 'Heading'">
       <row class="d-flex">
-
-        <button :aria-controls="'collapse' + name" class="accordion-button collapsed"
-                :data-bs-target="'#collapse' + name"
+        <button :aria-controls="'collapse' + muscle.id" class="accordion-button collapsed"
+                :data-bs-target="'#collapse' + muscle.id"
                 data-bs-toggle="collapse" type="button">
-          <b>{{ name }}</b>
-
+          <b>{{ muscle.id.toUpperCase() }}</b>
         </button>
-
-        <button class="btn btn-tiny px-2 mx-0"
-                type="button">
-          <i class="fa-regular fa-trash-can"></i>
-        </button>
+        <delete-muscle-modal class="mt-2 mx-2" :key="muscle.id" :id="muscle.id"
+                             :model-value="muscle"></delete-muscle-modal>
       </row>
-
     </h1>
-
-    <div :aria-labelledby="name + 'Heading'" :class="'accordion-collapse collapse'"
+    <div :aria-labelledby="muscle.id + 'Heading'"
+         :class="'accordion-collapse collapse'"
          data-bs-parent="#accordionExample"
-         :id="'collapse' + name">
+         :id="'collapse' + muscle.id">
       <div class="accordion-body">
-        <div class="body-content row">
-          <exercise-list v-for="training in muscle.listOfTrainings"
-                         :key="training"
-                         :training="training"
-
-                         @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)">
-          </exercise-list>
-
-
-        </div>
-
+        <training-list :trainings="trainings"
+                       :muscle="muscle">
+        </training-list>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>

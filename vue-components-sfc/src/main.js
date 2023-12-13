@@ -6,15 +6,11 @@ import {createApp} from 'vue'
 import '@fortawesome/fontawesome-free'
 import {library} from '@fortawesome/fontawesome-svg-core'
 
-import {faPersonRunning} from '@fortawesome/free-solid-svg-icons';
-import {faDumbbell} from '@fortawesome/free-solid-svg-icons';
-import {faStar} from '@fortawesome/free-solid-svg-icons';
-import {faTrophy} from '@fortawesome/free-solid-svg-icons';
-import {faHandHoldingMedical} from '@fortawesome/free-solid-svg-icons';
-import {faCirclePlus} from '@fortawesome/free-solid-svg-icons';
-import {faPencil} from '@fortawesome/free-solid-svg-icons';
-import {faTrash} from '@fortawesome/free-solid-svg-icons';
-
+import {
+    faPersonRunning, faDumbbell, faStar, faTrophy
+    , faHandHoldingMedical, faCirclePlus
+    , faPencil, faTrash
+} from '@fortawesome/free-solid-svg-icons';
 library.add(faPersonRunning);
 library.add(faDumbbell);
 library.add(faStar);

@@ -1,47 +1,33 @@
 <script>
-import AddExerciseModal from "./AddExerciseModal.vue";
-import ExerciseListExercise from "./ExerciseListExercise.vue";
-import TrainingGroup from "@/models/TrainingGroup";
-
+import ExerciseActivity from "./ExerciseActivity.vue";
+import db from "@/models/Firebase";
+import TrainingModel from "@/models/Training";
+import ExerciseModel from "@/models/Exercise";
+import Training from "@/models/Training";
 export default {
   name: "ExerciseList",
-  components: {ExerciseListExercise, AddExerciseModal},
+  components: {ExerciseActivity,},
   data() {
     return {
       uid: 'tra-' + Math.floor(Math.random() * 10e16),
     }
   },
   props: {
-    training: {
-      type: TrainingGroup,
+    exercises: {
+      type: Array,
     },
-
+    training: {
+      type: Training,
+    }
   },
-
-  computed: {},
-  emits: ['delete-exercise'],
 }
 </script>
-
 <template>
-  <div class="exercise-list col-xl-3 col-sm-12 col-md-6 pb-4">
-    <h5>{{ training.training }}
-      <add-exercise-modal :training="training" :id="uid" :model-value="training"
-                          @add-exercise="addExercise => $emit('add-exercise', addExercise)">
-      </add-exercise-modal>
-    </h5>
-    <hr>
-    <ul class="list-group list-group-flush border-bottom">
-      <exercise-list-exercise v-for="exercise in training.listOfExercises"
-                              :key="exercise.exerciseName"
-                              :exercise="exercise"
-
-                              @delete-exercise="deleteAction => $emit('delete-exercise', deleteAction)"
-      ></exercise-list-exercise>
-    </ul>
+  <div class="row justify-content-center">
+    <exercise-activity class="my-1 mx-1" v-for="exercise in exercises"
+                       :key="exercise.id"
+                       :exercise="exercise"
+                       :training="training">
+    </exercise-activity>
   </div>
 </template>
-
-<style scoped>
-
-</style>
